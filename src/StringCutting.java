@@ -10,7 +10,10 @@ public class StringCutting {
 		String inputtedString = input.nextLine();
 
 		int currentMatch[];
-		
+		while((currentMatch = findMatch(inputtedString)) != null) {
+			inputtedString = removeAndReplaceChars(inputtedString, currentMatch[0], currentMatch[1]);
+			System.out.println(inputtedString);
+		}
 
 		System.out.println(inputtedString);
 
@@ -34,6 +37,15 @@ public class StringCutting {
 		}
 		
 		return (maxStartIndex > 0 || maxEndIndex > 0) ? new int[] { maxStartIndex,  maxEndIndex} : null;
+	}
+	
+	public static String removeAndReplaceChars(String s, int firstCharIndex, int secondCharIndex) {
+		StringBuilder sb = new StringBuilder(s);
+		char c = s.charAt(secondCharIndex);
+		sb.deleteCharAt(secondCharIndex);
+		sb.deleteCharAt(firstCharIndex);
+		sb.append(c);
+		return sb.toString();
 	}
 	
 }
