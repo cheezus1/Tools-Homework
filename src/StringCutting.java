@@ -15,6 +15,7 @@ public class StringCutting {
 			System.out.println(inputtedString);
 		}
 
+		inputtedString = finalCheck(inputtedString);
 		System.out.println(inputtedString);
 
 	}
@@ -45,6 +46,15 @@ public class StringCutting {
 		sb.deleteCharAt(secondCharIndex);
 		sb.deleteCharAt(firstCharIndex);
 		sb.append(c);
+		return sb.toString();
+	}
+	
+	public static String finalCheck(String s) {
+		int underlineIndex = s.indexOf("_");
+		StringBuilder sb = new StringBuilder(s);
+		if(underlineIndex != -1) {
+			sb.delete(underlineIndex, s.length());
+		}
 		return sb.toString();
 	}
 	
