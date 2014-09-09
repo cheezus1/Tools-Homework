@@ -1,0 +1,18 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+jar {
+	manifest {
+		attributes 'Main-Class': 'sap.StringCutting'
+	}
+}
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
+dependencies {
+	compile "joda-time:joda-time:2.4"
+} 
